@@ -1,10 +1,13 @@
+import Button from "./evento/Button";
+
 function Evento() {
-    function myEvent() {
+    function myEvent(e) {
         const aleatorio = Math.random();
         if (aleatorio*10 > 5){
-            console.log('Fui ativado')
+
+            console.log(`Fui ativado ${e.target.innerHTML}`)
         }else {
-            alert('Fui ativado')
+            alert(`Fui ativado ${e.target.innerHTML}`)
         }
 
     }
@@ -12,7 +15,8 @@ function Evento() {
     return(
         <>
         <p>Clique para disparar um evento Misterioso:</p>
-        <button onClick={myEvent}>Ativar!</button>
+        <Button event={myEvent} text="Primeiro Evento"/>
+        <Button event={myEvent} text="Segundo Evento"/>
         </>
     )
 }
